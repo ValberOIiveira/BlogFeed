@@ -16,9 +16,13 @@ app.use(express.static('public'));
 //Importando categoriesController
 const categoriesController = require('./Categories/CategoriesController');
 const articlesController = require('./Articles/ArticlesController');
+const usersController = require('./User/UserController');
+
 
 const Article = require('./Articles/article.js');
 const Category = require('./Categories/categorie.js');
+const User = require('./User/user.js');
+
 
 
 
@@ -38,6 +42,9 @@ connection.authenticate().then(() => {
 app.use("/", categoriesController);
 
 app.use("/",articlesController);
+
+app.use("/",usersController);
+
 
 
 
