@@ -2,10 +2,11 @@ const express = require('express');
 const router = express.Router();
 const Category = require('./categorie');
 const slugify = require('slugify');
+const adminAuth = require('../Middlewares/adminAuth');
 
  
 
-router.get('/admin/categories/new',function(req,res){
+router.get('/admin/categories/new',adminAuth,function(req,res){
     res.render('admin/categories/new');
 
 
@@ -30,7 +31,7 @@ router.post('/categories/save',function(req,res){
     
 });
 
-router.get('/admin/categories',function(req,res){
+router.get('/admin/categories',adminAuth,function(req,res){
 
     Category.findAll().then(categories => {
 
@@ -70,7 +71,7 @@ router.post('/categories/delete',function(req,res){
 
 //Editando uma categoria
 
-router.get('/admin/categories/edit/:id',function(req,res){
+router.get('/admin/categories/edit/:id',adminAuth,function(req,res){
     var id = req.params.id;
 
     //Verificando id 

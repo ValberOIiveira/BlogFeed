@@ -3,9 +3,10 @@ const router = express.Router();
 const User = require('./user');
 //Importando o bcrypt para fazer o hash de senha
 const bcrypt = require('bcryptjs');
+const adminAuth = require('../Middlewares/adminAuth');
 
 
-router.get('/admin/users',function(req,res){
+router.get('/admin/users',adminAuth,function(req,res){
     //Uma forma errada de gerir sessões
     // if(req.session.user == undefined){
     //     res.redirect('/login');
@@ -26,7 +27,7 @@ router.get('/admin/users',function(req,res){
 
 
 
-router.get('/admin/users/create',function(req, res){
+router.get('/admin/users/create',adminAuth,function(req, res){
     res.render('admin/User/create')
 
 });
@@ -85,7 +86,7 @@ router.post('/authenticate',(req,res)=>{
                     id: user.id,
                     email: user.email
                 }
-                res.json(req.session.user)
+                res.redirect('/admin/articles')
 
             }else{
                 res.redirect('/login')
