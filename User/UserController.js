@@ -6,11 +6,13 @@ const bcrypt = require('bcryptjs');
 
 
 router.get('/admin/users',function(req,res){
-
+    //Uma forma errada de gerir sessões
+    // if(req.session.user == undefined){
+    //     res.redirect('/login');
+    // }
     User.findAll({
         order:[
             ['id','ASC']
-
         ]
     }).then(users => {
 
@@ -58,11 +60,49 @@ router.post('/users/create',function(req,res){
         }else{
             res.redirect('/admin/users/create')
         }
-    })
+    })    
+})
 
 
-    
-    
+//Rota de login
+router.get('/login',(req,res)=>{
+    res.render('admin/User/login')
+
+})
+
+//Rota de autenticação de login
+router.post('/authenticate',(req,res)=>{
+    var email = req.body.email;
+    var password = req.body.password;
+
+    User.findOne({where: {email : email}}).then(user => {
+        if(user != undefined){
+            //Validando a senha
+            var validPassword = bcrypt.compareSync(password, user.password);
+            if(validPassword)
+            {
+                req.session.user = {
+                    id: user.id,
+                    email: user.email
+                }
+                res.json(req.session.user)
+
+            }else{
+                res.redirect('/login')
+                console.log('Senha inválida')
+
+            }
+            
+         }else{
+        res.redirect('/login')
+
+        }
+});
+
+
+
+
+
 })
 
 

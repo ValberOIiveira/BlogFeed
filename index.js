@@ -2,6 +2,9 @@
 const express = require('express');
 const app = express();
 
+//Carregando o módulo sessions
+const session = require("express-session")
+
 //Carregando módulo de ejs
 app.set('view engine', 'ejs');
 
@@ -26,6 +29,11 @@ const User = require('./User/user.js');
 
 
 
+//Sessions
+app.use(session({
+    //Setando o tempo de sessão para expirar
+    secret: "Alaska", cookie: {maxAge: 86400000}
+}))
 
 
 
