@@ -100,6 +100,12 @@ router.post('/authenticate',(req,res)=>{
         }
 });
 
+//Fazendo logout
+router.get('/logout',(req,res)=>{
+    req.session.user = undefined;
+    res.redirect('/')
+    
+})
 
 
 
