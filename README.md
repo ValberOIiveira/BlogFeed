@@ -4,11 +4,7 @@
 
 <h1 align="center">BlogFeed 📰</h1>
 
-<p align="center">
-  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/yourusername/BlogFeed?color=green">
-  <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/yourusername/BlogFeed?color=green">
-  <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/yourusername/BlogFeed?color=green">
-</p>
+
 
 <p align="center">
   <a href="#-sobre-o-projeto">Sobre</a> •
