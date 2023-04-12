@@ -27,7 +27,7 @@
 
 BlogFeed é uma aplicação web que tem como objetivo ser um blog onde é possível criar e gerenciar artigos, divididos em categorias, com um sistema de login para administradores.
 
-Este projeto foi desenvolvido durante a disciplina de Programação para a Web, com o intuito de aprimorar as habilidades de desenvolvimento de backend utilizando Node.js, Express.js e banco de dados MySQL.
+Este projeto foi desenvolvido enquanto eu estudo desenvolvimento web, com o intuito de aprimorar as habilidades de desenvolvimento de backend utilizando Node.js, Express.js e banco de dados MySQL.
 
 ## 📌 Funcionalidades
 
